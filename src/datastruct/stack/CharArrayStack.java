@@ -41,4 +41,23 @@ public class CharArrayStack implements StackC{
     public boolean isFull() {
         return top == maxsize;
     }
+
+    /**
+     * 一般栈之类的其实是受限访问的，但是我们在设计这个类的时候可以灵活处理。
+     * 我们需要获取到数组中的数据，所以开放了这个方法。
+     * @param n
+     * @return
+     */
+    public char peekN(int n ) {
+        return arr[n];
+    }
+
+    public void displayStack(String s){
+        System.out.println(s);
+        System.out.println("Stack (bottom --> top)");
+        for(int j = 0 ; j < top+1 ; j++) {
+            System.out.print(peekN(j));
+        }
+        System.out.println();
+    }
 }
