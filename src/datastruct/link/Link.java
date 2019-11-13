@@ -17,6 +17,6 @@ public class Link {
         dData = dd;
     }
     public void displayLink(){
-        System.out.println(" {"+iData+","+dData+"}");
+        System.out.print(" {"+iData+","+dData+"}");
     }
 }
