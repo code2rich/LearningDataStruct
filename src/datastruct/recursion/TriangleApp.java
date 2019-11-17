@@ -9,6 +9,7 @@ import java.util.Scanner;
 /**
  * @author Zen
  * @version : TriangleApp.java, v 0.1 2019/11/17 19:20 Zen Exp $
+ * （n*n+n）/2
  */
 public class TriangleApp {
     static  int theNumber;
@@ -23,9 +24,11 @@ public class TriangleApp {
     }
 
     public static int triangle(int n) {
+        //基值情况 退出条件
         if(n == 1){
             return 1;
         }else{
+            //解决更小的问题
             return (n+triangle(n-1));
         }
     }
