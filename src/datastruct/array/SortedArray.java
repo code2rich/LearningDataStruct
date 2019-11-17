@@ -76,6 +76,36 @@ public class SortedArray {
             }
         }
     }
+    public int findRec(long searchKey) {
+        return recFind(searchKey,0,nElems-1);
+    }
+    /**
+     * 二分查找
+     * 分治算法
+     * @param searchKey
+     * @param lowerBound
+     * @param upperBound
+     * @return
+     */
+    private int recFind(long searchKey , int lowerBound , int upperBound) {
+        int curIn;
+        curIn = (lowerBound+upperBound)/2;
+        if(arr[curIn] == searchKey){
+            return curIn;
+        }else if(lowerBound > upperBound){
+            return nElems;
+        }else{
+            /*
+            * 分治算法
+            * */
+            if(arr[curIn] < searchKey) {
+                return recFind(searchKey,curIn+1,upperBound);
+            }else{
+                return recFind(searchKey,lowerBound,curIn-1);
+            }
+        }
+    }
+
 
     /**
      *

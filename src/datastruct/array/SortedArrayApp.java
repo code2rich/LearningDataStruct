@@ -26,6 +26,7 @@ public class SortedArrayApp {
         sortedArray.delete(99);
         sortedArray.display();
         System.out.println(sortedArray.find(99));
+        System.out.println("查找数据11的位置为："+sortedArray.findRec(11));
 
 
 
