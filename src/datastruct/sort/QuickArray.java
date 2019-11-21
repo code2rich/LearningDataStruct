@@ -69,7 +69,7 @@ public class QuickArray {
         if(right - left <= 0) {
             return;
         }else{
-            //取分割点的值
+            //取分割点的值 这里取得是最后的值
             long pivot = arr[right];
             int partition = partitionIt(left,right,pivot);
             recQuick(left,partition-1);
