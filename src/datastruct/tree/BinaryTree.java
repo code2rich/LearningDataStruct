@@ -4,6 +4,8 @@
  */
 package datastruct.tree;
 
+import java.util.Stack;
+
 /**
  * @author Zen
  * @version : BinaryTree.java, v 0.1 2019/11/21 21:35 Zen Exp $
@@ -41,12 +43,18 @@ public class BinaryTree {
                     current = current.rightChild;
                     if(current == null) {
                         parent.rightChild = node;
+                        return;
                     }
                 }
             }
         }
     }
 
+    /**
+     * 删除节点
+     * @param key
+     * @return
+     */
     public boolean delete(int key) {
         Node current = root;
         Node parent = root;
@@ -188,7 +196,42 @@ public class BinaryTree {
         }
     }
     public void displayTree(){
-
+        Stack globalStack = new Stack();
+        globalStack.push(root);
+        int nBlanks = 32;
+        boolean isRowEmpty = false;
+        System.out.println("....................分割线.............................");
+        while(isRowEmpty==false) {
+            Stack localStack = new Stack();
+            isRowEmpty = true;
+            for(int j = 0; j < nBlanks;j++){
+                System.out.print(" ");
+            }
+            while(globalStack.isEmpty()==false){
+                Node temp = (Node)globalStack.pop();
+                if(temp!=null) {
+                    System.out.print(temp.iData);
+                    localStack.push(temp.leftChild);
+                    localStack.push(temp.rightChild);
+                if(temp.leftChild!=null || temp.rightChild!=null) {
+                    isRowEmpty = false;
+                }
+                }else{
+                    System.out.print("--");
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for(int j = 0 ; j < nBlanks*2-2;j++){
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+            nBlanks/=2;
+            while(localStack.isEmpty()==false) {
+                globalStack.push(localStack.pop());
+            }
+        }
+        System.out.println(".....................分割线........................");
     }
 
 

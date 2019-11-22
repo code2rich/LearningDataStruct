@@ -11,11 +11,12 @@ package datastruct.tree;
 public class BinaryTreeApp {
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        for(int j = 0 ; j < 100 ; j++) {
+        for(int j = 0 ; j < 9 ; j++) {
             int n = (int)(java.lang.Math.random()*99);
             double h = (double)n;
             tree.insert(n,n);
         }
         tree.traverse(2);
+        tree.displayTree();
     }
 }
